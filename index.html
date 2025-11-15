@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Assignment3</title>
+
+<style>
+    body {
+        background: #212529;
+        font-family: Arial, sans-serif;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    form {
+        background: #343a40;
+        padding: 30px;
+        width: 360px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+    h2 { 
+        text-align: center; 
+        margin-bottom: 10px;
+    }
+    label { 
+        display: block; 
+        margin-top: 15px; 
+        margin-bottom: 5px;
+    }
+    input, select {
+        width: 100%;
+        padding: 8px;
+        border: none;
+        border-radius: 6px;
+        margin-top: 3px;
+    }
+    .inline {
+        width: auto;
+        margin-right: 10px;
+    }
+    .radio-group label,
+    .checkbox-group label {
+        display: inline-block;
+        margin-right: 10px;
+        font-weight: normal;
+    }
+
+    input[type="submit"] {
+        margin-top: 25px;
+        background: #4dabf7;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    input[type="reset"] {
+        background: #e03131;
+        color: white;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    /* Password show/hide button */
+    .password-container {
+        display: flex;
+        align-items: center;
+    }
+    .password-container input {
+        flex: 1;
+    }
+    .visable-pass {
+        margin-left: 8px;
+        background: #4dabf7;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+</style>
+</head>
+
+<body>
+
+<form action="#" method="post">
+    <h2>Welcome Back 👋</h2>
+
+    <!-- Email -->
+    <label>Email</label>
+    <input type="email" name="email" placeholder="you@example.com" required>
+
+    <!-- Password + show/hide -->
+    <label>Password</label>
+    <div class="password-container">
+        <input type="password" name="password" id="pass" minlength="6" required>
+        <button type="button" class="visable-pass" onclick="visablePassword()">Show</button>
+    </div>
+
+    <!-- Remember me -->
+    <label>Remember me?</label>
+    <div class="checkbox-group">
+        <label><input type="checkbox" class="inline" name="remember"> Keep me logged in</label>
+    </div>
+
+    <!-- Radio: Login role -->
+    <label>Login as:</label>
+    <div class="radio-group">
+        <label><input type="radio" name="role" value="admin" required> Admin</label>
+        <label><input type="radio" name="role" value="writer"> Writer</label>
+        <label><input type="radio" name="role" value="reader"> Reader</label>
+    </div>
+
+    
+    <label>Favorite Category</label>
+    <select name="category">
+        <option>Technology</option>
+        <option>Gaming</option>
+        <option>AI</option>
+        <option>Reading</option>
+    </select>
+
+    
+    <input type="submit" value="Login">
+    <input type="reset" value="Clear">
+</form>
+
+<script>
+    
+    function visablePassword() {
+        let password = document.getElementById('pass');
+        let btn = document.querySelector('.visable-pass');
+        if (password.type === "password") {
+            password.type = "text";
+            btn.textContent = "Hide";
+        } else {
+            password.type = "password";
+            btn.textContent = "Show";
+        }
+    }
+</script>
+
+</body>
+</html>
+
